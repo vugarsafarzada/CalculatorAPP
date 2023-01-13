@@ -13,104 +13,7 @@ export default function App() {
   const [valueA, setValueA] = useState(0);
   const [operation, setOperation] = useState(0);
 
-  const keys = [
-    {
-      keyName: 1,
-      method: (key) => {
-        updateScreen(key);
-      },
-    },
-    {
-      keyName: 2,
-      method: (key) => {
-        updateScreen(key);
-      },
-    },
-    {
-      keyName: 3,
-      method: (key) => {
-        updateScreen(key);
-      },
-    },
-    {
-      keyName: "+",
-      method: (key) => {
-        updateScreen(key);
-      },
-    },
-    {
-      keyName: 4,
-      method: (key) => {
-        updateScreen(key);
-      },
-    },
-    {
-      keyName: 5,
-      method: (key) => {
-        updateScreen(key);
-      },
-    },
-    {
-      keyName: 6,
-      method: (key) => {
-        updateScreen(key);
-      },
-    },
-    {
-      keyName: "-",
-      method: (key) => {
-        updateScreen(key);
-      },
-    },
-    {
-      keyName: 7,
-      method: (key) => {
-        updateScreen(key);
-      },
-    },
-    {
-      keyName: 8,
-      method: (key) => {
-        updateScreen(key);
-      },
-    },
-    {
-      keyName: 9,
-      method: (key) => {
-        updateScreen(key);
-      },
-    },
-    {
-      keyName: "X",
-      method: (key) => {
-        updateScreen(key);
-      },
-    },
-    {
-      keyName: "C",
-      method: (key) => {
-        updateScreen(key);
-      },
-    },
-    {
-      keyName: 0,
-      method: (key) => {
-        updateScreen(key);
-      },
-    },
-    {
-      keyName: "=",
-      method: (key) => {
-        updateScreen(key);
-      },
-    },
-    {
-      keyName: "/",
-      method: (key) => {
-        updateScreen(key);
-      },
-    },
-  ];
+  const keys = [1,2,3,"+",4,5,6,"-",7,8,9,"X","C",0,"=","/"];
   const updateScreen = (key) => {
     if (key === "=") {
       setValue(calculateProcess());
@@ -174,12 +77,12 @@ export default function App() {
           return (
             <TouchableOpacity
               style={
-                typeof item.keyName === "number" ? styles.keys : styles.goldKey
+                typeof item === "number" ? styles.keys : styles.goldKey
               }
               key={index}
-              onPress={() => item.method(item.keyName)}
+              onPress={() => updateScreen(item)}
             >
-              <Text style={styles.keyText}>{item.keyName.toString()}</Text>
+              <Text style={styles.keyText}>{item.toString()}</Text>
             </TouchableOpacity>
           );
         })}
