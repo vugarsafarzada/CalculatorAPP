@@ -134,8 +134,12 @@ export default function App() {
           setValue(0);
         }
       }
-    } else {
-      setValue(key);
+    } else if (typeof key === "number" || key === '-'){
+      if(key === '-'){
+        setValue(-1);
+      } else {
+        setValue(key);
+      }
     }
   };
 
